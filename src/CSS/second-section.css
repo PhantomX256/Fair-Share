@@ -1,0 +1,59 @@
+.second-section {
+    color: #4d4d4d;
+    height: 70vh;
+    background-color: #f5f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.second-section-heading {
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 5vh;
+    margin-bottom: 2vh;
+}
+
+.second-section-content {
+    font-family: "Inter";
+    font-size: 3vh;
+    font-weight: 200;
+    margin-bottom: 5vh;
+}
+
+.suitable-card-container {
+    display: flex;
+    padding: 1vh 2vw;
+    gap: 5vw;
+}
+
+.suitable-card {
+    box-shadow: 0vh 0.5vh 1vh rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 3vh;
+    padding: 4vh 1vw;
+    width: 20vw;
+    transition: 0.3s;
+}
+
+.suitable-card:hover {
+    border-radius: 0.5vh;
+    scale: 1.1;
+    transition: 0.3s;
+}
+
+.suitable-image {
+    height: 13vh;
+}
+
+.suitable-heading {
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 3vh;
+}
+
+.suitable-content {
+    font-family: "Inter";
+    font-size: 2.5vh;
+}
