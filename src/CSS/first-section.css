@@ -1,0 +1,44 @@
+.first-section {
+    height: 86vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0vh 10vw;
+}
+
+.slogan {
+    font-weight: 600;
+    color: #4d4d4d;
+    font-family: "Poppins";
+    font-size: 8vh;
+}
+
+.subtext {
+    font-family: "Inter";
+    font-size: 3vh;
+    color: #717171;
+}
+
+.download-button {
+    font-size: 3vh;
+    background-color: #19c4a5;
+    border: none;
+    color: white;
+    padding: 2vh 2vw;
+    border-radius: 1.5vh; 
+    margin-top: 5vh;
+    font-family: "Quicksand";
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.download-button:hover {
+    scale: 1.2;
+    border-radius: 0vh;
+    box-shadow: 0.1vh 0.1vh 0.5vh rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+}
+
+.illustration {
+    width: 40vw;
+}
