@@ -1,0 +1,50 @@
+.third-section {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4d4d4d;
+    gap: 5vw;
+}
+
+.third-section-illustration {
+    height: 60vh;
+}
+
+.third-section-container {
+    width: 50vw;
+}
+
+.third-section-title {
+    font-family: "Poppins";
+    font-size: 5vh;
+    font-weight: 600;
+    margin-bottom: 2vh;
+}
+
+.third-section-content {
+    font-family: "Inter";
+    color: #717171;
+    font-size: 2.5vh;
+    margin-bottom: 5vh;
+}
+
+.third-section-button {
+    font-family: "Quicksand";
+    color: white;
+    background-color: #00e0c0;
+    border: none;
+    padding: 2vh 2vw;
+    border-radius: 2vh;
+    transition: 0.3s;
+    font-size: 3vh;
+    cursor: pointer;
+}
+
+.third-section-button:hover {
+    scale: 1.2;
+    transition: 0.3s;
+    border-radius: 1vh;
+    margin-left: 1vw;
+    box-shadow: 0.1vh 0.1vh 0.5vh rgba(0, 0, 0, 0.5);
+}
