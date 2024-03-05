@@ -1,0 +1,52 @@
+.footer {
+    height: 40vh;
+    padding: 4vh 4vw;
+    background-color: #29464d;
+    display: flex;
+}
+
+.logo {
+    height: 10vh;
+}
+
+.social-icon-container {
+    background-color: #3e595f;
+    border-radius: 50%;
+    padding: 0.75vh 0.5vw;
+    transition: 0.3s;
+}
+
+.social-icon-container:hover {
+    .social-icon-actual {
+        color: #3e595f;
+        transition: 0.3s;
+    }
+
+    background-color: white;
+    transition: 0.3s;
+}
+
+.creator-name {
+    color: white;
+    font-weight: 400;
+    font-family: "Red Hat Display";
+}
+
+.creator-card {
+    margin-left: 1vw;
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+.social-icon-actual {
+    font-size: 4vh;
+    color: white;
+    transition: 0.3s;   
+}
+
+.social-icon {
+    display: flex;
+    gap: 0.5vw;
+}

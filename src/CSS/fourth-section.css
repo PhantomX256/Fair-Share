@@ -1,0 +1,25 @@
+.fourth-section {
+    height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f7fa;
+    flex-direction: column;
+    padding: 0vh 6vw;
+    text-align: center;
+    gap: 2vh;
+}
+
+.fourth-section-title {
+    font-family: "Poppins";
+    font-size: 5vh;
+    color: #4d4d4d;
+    font-weight: 600;
+}
+
+.fourth-section-content {
+    font-family: "Inter";
+    font-size: 2.5vh;
+    color: #717171;
+    font-weight: 300;
+}

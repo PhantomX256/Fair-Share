@@ -1,0 +1,24 @@
+.fifth-section {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9vw;
+}
+
+.fifth-section-illustration {
+    height: 60vh;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    margin-bottom: 3vh;
+}
+
+.list-content {
+    color: #4d4d4d;
+    font-family: "Red Hat Display";
+    font-weight: 400;
+}
