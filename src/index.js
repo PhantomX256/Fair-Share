@@ -1,9 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Home from "./pages/Home";
+import App from "./App";
 
 ReactDOM.render( 
-    <div>
-        <Home />
-    </div>
+    <App />
 , document.getElementById("root"));

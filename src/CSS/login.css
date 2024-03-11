@@ -1,0 +1,115 @@
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-illustration {
+    width: 45vw;
+}
+
+.login-form-container {
+    width: 45vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    margin-top: 4vh;
+}
+
+.input-field {
+    display: flex;
+    align-items: flex-end;
+    background-color: white;
+    border-radius: 1.5vh;
+    padding: 1.5vh 0.1vw;
+    gap: 2vh;
+    transition: 0.3s;
+}
+
+.input-field:hover {
+    border-radius: 0.5vh;
+    box-shadow: 0vh 0.3vh 0.5vh rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.input-field:focus-within {
+    border-radius: 0.5vh;
+    box-shadow: 0vh 0.3vh 0.5vh rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.input-icon {
+    font-size: 3vh;
+    margin-left: 2.5vh;
+    color: #adb0cd;
+}
+
+.input {
+    background-color: white;
+    border: none;
+    font-size: 2.5vh;
+    outline: none;
+    width: 25vw;
+    font-family: "Inter";
+}
+
+.input::placeholder {
+    font-size: 2.5vh;
+    color: #adb0cd;
+    font-family: "Inter";
+}
+
+.login-btn {
+    border: none;
+    background-color: #19c4a5;
+    border-radius: 1.5vh;
+    color: white;
+    padding: 1.7vh 1vw;
+    font-family: "Inter";
+    font-weight: 600;
+    font-size: 2.5vh;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    border-radius: 0.5vh;
+    transition: 0.3s;
+    box-shadow: 0vh 0.3vh 0.5vh rgba(0, 0, 0, 0.5);
+}
+
+.forgot {
+    color: #00e0c0;
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 2.5vh;
+    text-align: right;
+}
+
+.border-text {
+    position: absolute;
+    font-family: "Poppins";
+    top: -2vh;
+    left: 44%;
+    color: #969AB8;
+    background-color: #f5f5f5;
+    padding: 0vh 1vw;
+}
+
+.border {
+    display: inline-block;
+    position: relative;
+    content: "";
+    background-color: #969AB8;
+    width: 100%;
+    height: 0.1vh;
+    margin-top: 5vh;
+}

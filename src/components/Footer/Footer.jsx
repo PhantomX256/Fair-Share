@@ -9,7 +9,7 @@ function Footer() {
                 <img className="logo" src="https://i.ibb.co/mR4rNZS/Logo.png" alt="FairShare" />
                 <p style={{ fontFamily: "Poppins", color: "white", fontWeight: "500" }}>Made by</p>
                 <CreatorCard name="Ved Verma" />
-                <CreatorCard name="Aayushi Roy" />
+                <CreatorCard name="Ayushi Roy" />
             </div>
         </div>
     )
