@@ -1,0 +1,19 @@
+#register-page {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5vw;
+    align-items: center;
+}
+
+.register-illustration {
+    height: 100vh;
+}
+
+.signup-form-container {
+    height: 100vh;
+    width: 45vw;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

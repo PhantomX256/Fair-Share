@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Input from "./Input";
-import Border from "./Border";
+import Input from "../Login/Input";
+import Border from "../Login/Border";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 
-function LoginForm() {
+function RegisterForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -34,12 +34,18 @@ function LoginForm() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
+            <Input
+                icon={faLock}
+                placeholder="Repeat Password"
+                type="password"
+                class="input"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
             <button type="submit" className="login-btn">
-                Log In
+                Sign Up
             </button>
-            <a className="forgot" href="/forgot-password">
-                Forgot Password?
-            </a>
             <Border />
             <span
                 style={{
@@ -49,13 +55,13 @@ function LoginForm() {
                     color: "#969AB8",
                 }}
             >
-                Don't have an account?{" "}
-                <a style={{ color: "#19C4A5", fontWeight: 600 }} href="/register">
-                    Sign up
+                Already have an account?{" "}
+                <a style={{ color: "#19C4A5", fontWeight: 600 }} href="/login">
+                    Log In
                 </a>
             </span>
         </form>
     );
 }
 
-export default LoginForm;
+export default RegisterForm;
