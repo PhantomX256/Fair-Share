@@ -1,21 +1,55 @@
 import React, { useState } from "react";
 import Input from "../Login/Input";
 import Border from "../Login/Border";
+import { database } from "../../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 function RegisterForm() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [error, setError] = useState("");
+    const [cont, setCont] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        console.log("Email: ", email);
-        console.log("Password: ", password);
+        if (password.length < 8 || password.length > 24) {
+            setError("Password must be between 8 - 24 characters");
+            setCont(false);
+        } else if (password !== confirmPassword) {
+            setError("Passwords do not match");
+            setCont(false);
+        } else if (password.toLowerCase() === password) {
+            setError("Password must have an uppercase letter");
+            setCont(false);
+        } else if (password !== "" && password === confirmPassword && (password.length >= 8 || password.length <= 24)){
+            setCont(true);
+        }
+
+        if (cont) {
+            createUserWithEmailAndPassword(database, email, password)
+                .then((data) => {
+                    console.log(data, "authData");
+                    alert("Account created successfully!");
+                    navigate("/login");
+                })
+                .catch((err) => {
+                    console.log(err.code);
+                    if (err.code === "auth/email-already-in-use")
+                        setError("Email is already in use");
+                });
+        }
     };
 
     return (
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form
+            className="login-form"
+            onSubmit={handleSubmit}
+        >
             <Input
                 icon={faEnvelope}
                 placeholder="Your Email"
@@ -39,10 +73,11 @@ function RegisterForm() {
                 placeholder="Repeat Password"
                 type="password"
                 class="input"
-                name="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                name="confirmPassword"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
             />
+            <div className="error-input">{error}</div>
             <button type="submit" className="login-btn">
                 Sign Up
             </button>

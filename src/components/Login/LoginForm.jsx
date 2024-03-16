@@ -1,17 +1,27 @@
 import React, { useState } from "react";
 import Input from "./Input";
 import Border from "./Border";
+import { database } from "../../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        console.log("Email: ", email);
-        console.log("Password: ", password);
+        signInWithEmailAndPassword(database, email, password).then(data => {
+            console.log(data);
+            navigate("/home");
+        }).catch(err => {
+            if (err.code === "auth/invalid-credential")
+                setError('Invalid email or password');
+        })
     };
 
     return (
@@ -34,6 +44,9 @@ function LoginForm() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
+            <div className="error-input">
+                {error}
+            </div>
             <button type="submit" className="login-btn">
                 Log In
             </button>
