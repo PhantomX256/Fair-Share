@@ -1,0 +1,38 @@
+.first-time-name {
+    background-color: white;
+    border: none;
+    font-size: 2.5vh;
+    outline: none;
+    width: 25vw;
+    font-family: "Inter";
+}
+
+.first-time-name::placeholder {
+    font-size: 2.5vh;
+    color: #adb0cd;
+    font-family: "Inter";
+}
+
+.first-time-submit {
+    border: none;
+    background-color: #19c4a5;
+    border-radius: 1.5vh;
+    color: white;
+    padding: 1.7vh 1vw;
+    font-family: "Inter";
+    width: 29vw;
+    font-weight: 600;
+    font-size: 2.5vh;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.first-time-submit:hover {
+    border-radius: 0.5vh;
+    transition: 0.3s;
+    box-shadow: 0vh 0.3vh 0.5vh rgba(0, 0, 0, 0.5);
+}
+
+.first-name-error {
+    margin: 2vh;
+}

@@ -1,9 +1,14 @@
 import React from "react";
 import Illustration from "../components/Illustration";
 import RegisterFrom from "../components/Register/RegisterForm";
+import BackToHome from "../components/Register/BackToHome";
 import "../CSS/register.css";
 
 function SignUp() {
+    const returnToHomeStyles = {
+        top: '2vh',
+        right: '2vh',
+    };
     return (
         <div id="register-page">
             <Illustration
@@ -11,6 +16,7 @@ function SignUp() {
                 class="register-illustration"
             />
             <div className="signup-form-container">
+                <BackToHome style={returnToHomeStyles}  />
                 <span>
                     <h1 style={{ fontFamily: "Red Hat Display", fontWeight: 500 }}>Sign Up</h1>
                     <RegisterFrom />

@@ -1,12 +1,18 @@
 import React from "react";
 import Illustration from "../components/Illustration";
 import LoginForm from "../components/Login/LoginForm";
+import BackToHome from "../components/Register/BackToHome";
 import "../CSS/login.css";
 
 function Login() {
+    const returnToHomeStyles = {
+        top: '2vh',
+        left: '2vh',
+    };
     return (
         <div className="login-page">
             <div className="login-form-container">
+                <BackToHome style={returnToHomeStyles} />
                 <span className="login-content">
                     <h2 style={{ fontFamily: "Red Hat Display", fontSize: "5vh" }}>
                         Welcome back!

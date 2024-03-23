@@ -4,24 +4,23 @@ import Border from "./Border";
 import { database } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-
-        signInWithEmailAndPassword(database, email, password).then(data => {
-            console.log(data);
-            navigate("/home");
-        }).catch(err => {
+        setLoading(true);
+        try {
+            await signInWithEmailAndPassword(database, email, password);
+        } catch (err) {
             if (err.code === "auth/invalid-credential")
                 setError('Invalid email or password');
-        })
+        }
+        setLoading(false);
     };
 
     return (
@@ -48,7 +47,7 @@ function LoginForm() {
                 {error}
             </div>
             <button type="submit" className="login-btn">
-                Log In
+                {(loading) ? 'Loading': 'Log In'}
             </button>
             <a className="forgot" href="/forgot-password">
                 Forgot Password?

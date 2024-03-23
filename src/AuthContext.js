@@ -12,7 +12,7 @@ export function AuthContext({children}) {
         let unsubscribe;
         unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setLoading(false);
-            if (currentUser) setUser(null);
+            if (currentUser) setUser(currentUser);
             else setUser(null);
         });
         return () => {
