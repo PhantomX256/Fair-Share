@@ -1,1 +1,4 @@
-Create the FirstTime page and the logic for the routing of that page
+Create the dashboard:
+    Create a friends popup to add friends and display your uid
+
+Implement the create a group functionality:

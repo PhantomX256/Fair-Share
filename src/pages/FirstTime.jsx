@@ -50,7 +50,10 @@ function FirstTime() {
         try {
             await updateDoc(userDocRef, {
                 fullName: name,
-                isNewUser: false
+                isNewUser: false,
+                numberOfGroups: 0,
+                groupIds: [],
+                friendIds: []
             });
             console.log(name);
             navigate('/dashboard');

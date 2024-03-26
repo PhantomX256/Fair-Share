@@ -11,8 +11,23 @@ function SignoutButton() {
     }
 
     return (
-        <button onClick={handleClick}>Log Out</button>
-    )
+        <button 
+            style={{ 
+                padding: '0.5vh 1vw',
+                fontFamily: 'Poppins', 
+                cursor: 'pointer', 
+                backgroundColor: 'white', 
+                border: 'none', 
+                color: '#1cdbb9',
+                transition: 'background-color 0.3s'
+            }} 
+            onClick={handleClick}
+            onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#e6f7f8'}
+            onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'white'}
+        >
+            Log Out
+        </button>
+    );
 }
 
 export default SignoutButton;

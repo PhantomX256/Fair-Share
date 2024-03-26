@@ -1,0 +1,56 @@
+.dashboard-navbar-container {
+    display: flex;
+    background-color: #e1fff6;
+    padding: 1vh 2vw;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-icon-container {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5vh;
+}
+
+.user-image {
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    width: 6vh;
+    height: 6vh;
+}
+
+.user-name {
+    font-size: 3.5vh;
+    color: #4d4d4d;
+    font-family: "Red Hat Display";
+    font-weight: 400;
+}
+
+.dashboard-grouping {
+    height: 88vh;
+    width: 23vw;
+    background-color: #0e6757;
+}
+
+.grouping-section-divide {
+    background-color: #e4e6ec;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2vh 2vw;
+}
+
+.profile-popup {
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: opacity 0.5s, transform 0.5s, visibility 0.5s;
+}
+
+.profile-popup.visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
