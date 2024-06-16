@@ -1,4 +1,4 @@
 Create the dashboard:
-    Create a friends popup to add friends and display your uid
 
 Implement the create a group functionality:
+    

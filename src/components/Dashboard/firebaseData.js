@@ -1,5 +1,5 @@
 import { db } from "../../firebase";
-import { doc, getDoc, getDocs, collection, query, where, documentId } from "firebase/firestore";
+import { doc, getDoc, getDocs, collection, query, where, documentId, updateDoc } from "firebase/firestore";
 
 export async function getUserData(user, setName, setNumberOfGroups, setGroups, setFriends) {
     const userDocRef = doc(db, "users", user.uid);
@@ -37,4 +37,13 @@ export async function getFriends(friends, setFriendDetails) {
         fetchedFriends.push(doc.data().fullName);
     });
     setFriendDetails(fetchedFriends);
+}
+
+export async function addFriends(friends, setFriends, newFriendId, userID, setFriendDetails) {
+    const userDocRef = doc(db, 'users', userID);
+    const currentFriends = friends;
+    if (!friends.includes(newFriendId)) currentFriends.push(newFriendId);
+    setFriends(currentFriends);
+    await updateDoc(userDocRef, { friendIds: friends });
+    getFriends(friends, setFriendDetails)
 }

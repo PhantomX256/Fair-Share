@@ -54,3 +54,89 @@
     transform: translateY(0);
     visibility: visible;
 }
+
+.grouping-section-divide-plus {
+    transition: 0.3s;
+}
+
+.grouping-section-divide-plus:hover {
+    transition: 0.3s;
+    scale: 1.2;
+}
+
+.greeting-hover-button {
+    transition: 0.3s;
+    border-radius: 2vh;
+    cursor: pointer;
+}
+
+.greeting-hover-button:hover {
+    scale: 1.1;
+    border-radius: 1vh;
+    transition: 0.3s;
+}
+
+.friend-popup-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.friend-popup-container {
+    background-color: #e1fff6;
+    padding: 2vh 2vw;
+    width: 36vw;
+    height: 30vh;
+    position: relative;
+    border-radius: 1vh;
+}
+
+.friend-popup-close {
+    transition: 0.3s;
+}
+
+.friend-popup-close:hover {
+    scale: 1.2;
+    transition: 0.3s;
+}
+
+.friend-popup-addbtn {
+    transition: 0.3s;
+    font-size: 2.5vh;
+}
+
+.friend-popup-addbtn:hover {
+    font-size: 2.7vh;
+    transition: 0.3s;
+}
+
+.friend-popup-input {
+    border: none;
+    outline: none;
+    font-family: 'Inter';
+    font-size: 2.5vh;
+    width: 36vw;
+}
+
+.friend-popup-input::placeholder {
+    font-family: 'Inter';
+    font-size: 2.5vh;
+    color: #adb0cd;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; rotate: -45deg;}
+    25%, 75% { opacity: 1; rotate: 0deg;}
+    100% { opacity: 0; rotate: 45deg;}
+  }
+
+.check {
+    animation: fadeInOut 2s ease-in-out forwards;
+}
+

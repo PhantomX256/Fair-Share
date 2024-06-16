@@ -41,12 +41,12 @@ function GreetingSection({ name }) {
                         color: "white",
                         fontFamily: "Poppins",
                         padding: "1.5vh 1vw",
-                        borderRadius: "2vh",
                         fontSize: "3vh",
                         fontWeight: "300",
                         marginRight: "2vh",
                         boxShadow: '0vh 0.5vh 0.7vh 0px rgba(0,0,0,0.3)',
                     }}
+                    className="greeting-hover-button"
                 >
                     Settle Expenses
                 </button>
@@ -57,11 +57,11 @@ function GreetingSection({ name }) {
                         color: "white",
                         fontFamily: "Poppins",
                         padding: "1.5vh 1vw",
-                        borderRadius: "2vh",
                         fontSize: "3vh",
                         fontWeight: "300",
                         boxShadow: '0vh 0.5vh 0.7vh 0px rgba(0,0,0,0.3)',
                     }}
+                    className="greeting-hover-button"
                 >
                     Add Expense
                 </button>

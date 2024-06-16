@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import GroupingSectionDivide from "./GroupingSectionDivide";
 import ExpenseGroup from "./ExpenseGroup";
 import FriendTile from "./FriendTile";
+import FriendPopup from "./FriendPopup";
+import { useNavigate } from "react-router-dom";
 
 function DashboardGrouping({
     friendDetails,
     groupDetails,
     numberOfGroups,
     groups,
+    userID,
+    friends,
+    setFriends,
+    setFriendDetails
 }) {
+    const [toggleFriendPopup, setToggleFriendPopup] = useState(false);
+    const navigate = useNavigate();
+
     return (
         <div className="dashboard-grouping">
             <h2
@@ -34,7 +43,7 @@ function DashboardGrouping({
             >
                 All Expenses
             </h3>
-            <GroupingSectionDivide sectionTitle="Groups" />
+            <GroupingSectionDivide onClick={() => navigate('/create-group')} sectionTitle="Groups" />
             <div
                 style={{
                     display: "flex",
@@ -61,7 +70,7 @@ function DashboardGrouping({
                     ))
                 )}
             </div>
-            <GroupingSectionDivide sectionTitle="Friends" />
+            <GroupingSectionDivide onClick={() => setToggleFriendPopup(true)} sectionTitle="Friends" />
             <div
                 style={{
                     display: "flex",
@@ -87,6 +96,7 @@ function DashboardGrouping({
                     ))
                 )}
             </div>
+            {toggleFriendPopup && <FriendPopup setFriendDetails={setFriendDetails} setToggleFriendPopup={setToggleFriendPopup} friends={friends} setFriends={setFriends} userID={userID} />}
         </div>
     );
 }

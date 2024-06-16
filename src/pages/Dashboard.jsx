@@ -35,15 +35,19 @@ function Dashboard() {
             <DashboardNavbar name={name} />
             <div style={{ display: "flex" }}>
                 <DashboardGrouping
+                    userID = {user.uid}
                     friendDetails={friendDetails}
                     groupDetails={groupDetails}
                     numberOfGroups={numberOfGroups}
+                    friends={friends}
+                    setFriends={setFriends}
+                    setFriendDetails={setFriendDetails}
                 />
                 <div>
-                    <GreetingSection name='Ved' />
-                    <CategoryDivision />lun le le bhai
-                </div>hehshas
-            </div>hurrray!!!!!
+                    <GreetingSection name={name.substring(0, name.indexOf(" "))} />
+                    <CategoryDivision />
+                </div>
+            </div>
         </div>
     );
 }

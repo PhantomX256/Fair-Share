@@ -63,7 +63,6 @@ function FirstTime() {
     };
 
     return (
-        // TODO: Create input boxes for first time
         <div style={containerStyles}>
             <h2 style={headingStyles}>Welcome to FairShare!</h2>
             <h3 style={sublineStyles}>

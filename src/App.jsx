@@ -9,6 +9,7 @@ import { AuthContext } from "./AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
 import LoggedInRoute from "./components/LoggedInRoute";
 import FirstTimeChecker from "./components/FirstTimeChecker";
+import CreateGroup from "./pages/CreateGroup";
 
 function App() {
     return (
@@ -19,7 +20,8 @@ function App() {
                     <Route path="/login" element={<LoggedInRoute><Login /></LoggedInRoute>} />
                     <Route path="/register" element={<LoggedInRoute><SignUp /></LoggedInRoute>} />
                     <Route path="/dashboard" element={<PrivateRoute><FirstTimeChecker><Dashboard /></FirstTimeChecker></PrivateRoute>} />
-                    <Route path="/first-time" element={<FirstTime />} />
+                    <Route path="/first-time" element={<PrivateRoute><FirstTime /></PrivateRoute>} />
+                    <Route path="/create-group" element={<PrivateRoute><CreateGroup /></PrivateRoute>} />
                 </Routes>
             </BrowserRouter>
         </AuthContext>

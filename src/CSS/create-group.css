@@ -1,0 +1,227 @@
+.create-group-main-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 1) 85%,
+        rgba(0, 224, 192, 1) 100%
+    );
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+}
+
+.create-group-illustration {
+    height: 75vh;
+    margin-top: 10.5vh;
+}
+
+.create-group-name {
+    outline: none;
+    border: none;
+    font-family: "Inter";
+    font-size: 2.5vh;
+}
+
+.create-group-name::placeholder {
+    font-family: "Inter";
+    color: #969ab8;
+    font-size: 2.5vh;
+}
+
+.group-members-container {
+    margin-top: 1vh;
+    background-color: white;
+    width: 25vw;
+    height: 40vh;
+    overflow-y: scroll;
+    padding: 1vh 1vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+}
+
+.group-members-container::-webkit-scrollbar {
+    width: 0.5vw;
+}
+
+.group-members-container::-webkit-scrollbar-track {
+    background: white;
+}
+
+.group-member-delete-icon {
+    font-size: 3vh;
+    cursor: pointer;
+    color: #e0e2e9;
+    transition: 0.3s;
+}
+
+.group-member-delete-icon:hover {
+    color: red;
+    transition: 0.3s;
+}
+
+.group-create-add {
+    font-family: "Inter";
+    font-size: 3vh;
+    color: #19c4a5;
+    cursor: pointer;
+}
+
+.group-create-add:hover {
+    text-decoration: underline;
+}
+
+.add-member-popup-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.add-member-popup {
+    position: relative;
+    text-align: center;
+    background-color: white;
+    border-radius: 3vh;
+    box-sizing: border-box;
+    padding: 3vh 2vw;
+}
+
+.add-member-popup input[type="radio"] {
+    display: none;
+}
+
+.add-member-tabs {
+    cursor: pointer;
+    z-index: 7;
+    font-family: "Poppins";
+    transition: 0.3s ease;
+}
+
+#user:checked ~ .add-member-tab-container .user {
+    color: white;
+    transition: 0.3s ease;
+}
+
+#guest:checked ~ .add-member-tab-container .guest {
+    color: white;
+    transition: 0.3s ease;
+}
+
+#user:checked ~ .add-member-tab-container .add-member-tab-slider {
+    left: 0;
+}
+
+#guest:checked ~ .add-member-tab-container .add-member-tab-slider {
+    left: 45%;
+    width: 6.35vw;
+}
+
+.add-member-tab-container {
+    position: relative;
+    background-color: #e0e2e9;
+    padding: 1.5vh 1.5vw;
+    color: #969ab8;
+    display: inline-flex;
+    gap: 2vw;
+    border-radius: 1vh;
+    z-index: 5;
+    margin-bottom: 5vh;
+}
+
+.add-member-tab-slider {
+    z-index: 6;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 1vh;
+    width: 5.6vw;
+    height: 100%;
+    background-color: #05a18b;
+    transition: 0.3s ease;
+}
+
+.add-member-close {
+    position: absolute;
+    right: 2vh;
+    font-size: 4vh;
+    top: 2vh;
+    color: #969ab8;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.add-member-close:hover {
+    color: red;
+    transition: 0.3s;
+}
+
+.add-member-input {
+    background-color: white;
+    border: none;
+    font-size: 2.5vh;
+    outline: none;
+    width: 25vw;
+    font-family: "Inter";
+    box-sizing: border-box;
+}
+
+.add-member-input::placeholder {
+    font-size: 2.5vh;
+    color: #adb0cd;
+    font-family: "Inter";
+}
+
+.add-member-submit {
+    font-family: "Poppins";
+    font-size: 2.5vh;
+    background-color: #05a18b;
+    border: none;
+    color: white;
+    padding: 1.5vh 1.5vw;
+    border-radius: 2vh;
+    margin-top: 2vh;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-member-submit:hover {
+    border-radius: 1vh;
+    transition: 0.3s;
+    scale: 1.1
+}
+
+.add-member-error {
+    font-family: "Poppins";
+    color: red;
+    font-size: 2.5vh;
+}
+
+.create-group-submit {
+    background-color: #05a18b;
+    border: none;
+    color: white;
+    font-family: "Poppins";
+    outline: none;
+    padding: 1.5vh 2vw;
+    border-radius: 2vh;
+    font-size: 3vh;
+    margin-left: 9vw;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.create-group-submit:hover {
+    scale: 1.1;
+    border-radius: 1vh;
+    transition: 0.3s;
+}
