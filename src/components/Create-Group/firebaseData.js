@@ -5,7 +5,7 @@ import {
     collection,
     doc,
     getDoc,
-    updateDoc,
+    writeBatch
 } from "firebase/firestore";
 
 export async function getUserData(user, setGroupMembers) {
@@ -28,17 +28,30 @@ export async function getAddUserData(userID, addGroupMember) {
     }
 }
 
+// function to create group
 export async function createGroup(groupName, groupMembers) {
     const groupsCollectionRef = collection(db, "groups");
+
+    // Create the group doc
     const groupDocRef = await addDoc(groupsCollectionRef, {
         groupTitle: groupName,
         groupMembers: groupMembers,
     });
+
+    // Filter the group members to get the users
     const users = groupMembers.filter((member) => member.type === "user");
+
+    // Initialize a batch
+    const batch = writeBatch(db);
+
+    // Add users to the group in batch
     users.forEach(async (user) => {
         const userDocRef = doc(db, "users", user.id);
-        await updateDoc(userDocRef, {
+        batch.update(userDocRef, {
             groupIds: arrayUnion(groupDocRef.id),
         });
     });
+
+    // Commit the batch
+    await batch.commit();
 }

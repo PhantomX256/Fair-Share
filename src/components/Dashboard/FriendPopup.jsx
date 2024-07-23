@@ -5,18 +5,46 @@ import React, { useState } from "react";
 import CopyUserID from "./CopyUserID";
 import { addFriends } from "./firebaseData";
 
-function FriendPopup({ friends, setFriends, userID, setToggleFriendPopup, setFriendDetails }) {
+function FriendPopup({
+    friends,
+    setFriends,
+    userID,
+    setToggleFriendPopup,
+    setFriendDetails,
+}) {
     const [friendUserID, setFriendUserID] = useState("");
+    const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const [result, setResult] = useState(false);
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         setLoading(true);
-        addFriends(friends, setFriends, friendUserID, userID, setFriendDetails);
-        setTimeout(() => {
+
+        // Call addFriends and wait for it to complete
+        await addFriends(
+            friends,
+            setFriends,
+            friendUserID.trim(),
+            userID,
+            setFriendDetails,
+            setError,
+            setResult
+        );
+
+        console.log(result);
+
+        // Check the result after addFriends completes
+        if (result === true) {
+            
+            setTimeout(() => {
+                setLoading(false);
+                setToggleFriendPopup(false);
+            }, 2000);
+        } else {
             setLoading(false);
-            setToggleFriendPopup(false);
-        }, 2000)
+            // Error message will already be set by addFriends
+        }
     };
 
     return (
@@ -56,21 +84,22 @@ function FriendPopup({ friends, setFriends, userID, setToggleFriendPopup, setFri
                         type="text"
                         class="friend-popup-input"
                     />
+                    <div className="error-input">{error}</div>
                     <button
                         style={{
                             width: "36vw",
                             border: "none",
                             backgroundColor: "#0e6757",
                             color: "white",
-                            fontFamily: 'Poppins',
-                            padding: '1vh',
-                            borderRadius: '1.5vh',
-                            cursor: 'pointer'
+                            fontFamily: "Poppins",
+                            padding: "1vh",
+                            borderRadius: "1.5vh",
+                            cursor: "pointer",
                         }}
                         type="submit"
                         className="friend-popup-addbtn"
                     >
-                        {loading ? 'Adding' : 'Add Friend'}
+                        {loading ? "Adding" : "Add Friend"}
                     </button>
                 </form>
                 <CopyUserID userID={userID} />

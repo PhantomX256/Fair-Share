@@ -2,8 +2,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AddGuest from "./AddGuest";
 import AddUser from "./AddUser";
-import { Context } from "../../AuthContext";
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { getAddUserData } from "./firebaseData";
 
 function AddMemberPopup({ closePopup, addGroupMember, groupMembers }) {
@@ -13,43 +12,51 @@ function AddMemberPopup({ closePopup, addGroupMember, groupMembers }) {
     const [guestName, setGuestName] = useState("");
     const [userID, setUserID] = useState("");
 
-    const { user } = useContext(Context);
-
     const handleMemberTypeChange = (event) => {
         setMemberType(event.target.value);
     };
 
     const handleSubmit = async (e) => {
+        // put loading
         setLoading(true);
         e.preventDefault();
+
+        // member is a user
         if (memberType === "user") {
+            // user is already added
             const idExists = groupMembers.some(
-                (member) => member.id === userID
+                (member) => member.id === userID.trim()
             );
-            if (idExists) setError("User is already added");
-            else {
-                if (userID === user.uid) setError("User already added");
-                else {
-                    const userExists = await getAddUserData(
-                        userID,
-                        addGroupMember
-                    );
-                    if (!userExists) setError("User does not exist");
-                    else {
-                        setLoading(false);
-                        closePopup();
-                    }
-                }
-            }
-        } else {
-            if (guestName.trim() === "") setError("Invalid Name");
-            else {
-                addGroupMember(guestName, Date.now(), "guest");
+            if (idExists) {
+                setError("User is already added");
                 setLoading(false);
-                closePopup();
+                return;
             }
+
+            // checks if user exists and adds them
+            const userExists = await getAddUserData(
+                userID.trim(),
+                addGroupMember
+            );
+            if (userExists === false) {
+                setError("User does not exist");
+                setLoading(false);
+                return;
+            }
+
+            setLoading(false);
+            closePopup();
+        } else {
+            // adding a guest
+            if (guestName.trim() === "") {
+                setError("Invalid Name");
+                setLoading(false);
+                return;
+            }
+            addGroupMember(guestName, Date.now(), "guest");
+            setLoading(false);
+            closePopup();
         }
-        setLoading(false);
     };
 
     return (
@@ -69,6 +76,7 @@ function AddMemberPopup({ closePopup, addGroupMember, groupMembers }) {
                 >
                     Add a Member
                 </h2>
+
                 <input
                     type="radio"
                     name="slider"
@@ -85,6 +93,7 @@ function AddMemberPopup({ closePopup, addGroupMember, groupMembers }) {
                     checked={memberType === "guest"}
                     onChange={handleMemberTypeChange}
                 ></input>
+
                 <div className="add-member-tab-container">
                     <div className="add-member-tab-slider"></div>
                     <label className="add-member-tabs user" for="user">
@@ -94,6 +103,7 @@ function AddMemberPopup({ closePopup, addGroupMember, groupMembers }) {
                         Guest
                     </label>
                 </div>
+
                 <form onSubmit={handleSubmit}>
                     {memberType === "user" ? (
                         <AddUser
@@ -110,7 +120,7 @@ function AddMemberPopup({ closePopup, addGroupMember, groupMembers }) {
                     )}
                     <button className="add-member-submit" type="submit">
                         {loading
-                            ? "Loading"
+                            ? "Adding"
                             : `Add ${memberType === "user" ? "User" : "Guest"}`}
                     </button>
                 </form>

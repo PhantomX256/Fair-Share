@@ -118,11 +118,12 @@
 
 #user:checked ~ .add-member-tab-container .add-member-tab-slider {
     left: 0;
+    width: 5.1vw;
 }
 
 #guest:checked ~ .add-member-tab-container .add-member-tab-slider {
     left: 45%;
-    width: 6.35vw;
+    width: 5.6vw;
 }
 
 .add-member-tab-container {
@@ -223,5 +224,25 @@
 .create-group-submit:hover {
     scale: 1.1;
     border-radius: 1vh;
+    transition: 0.3s;
+}
+
+.confirm-action-button {
+    font-family: 'Inter';
+    font-size: 2.5vh;
+    color: #05a18b;
+    background-color: transparent;
+    border: none;
+    margin: 0vh 0.5vw 0vh 0.5vw;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 5vw;
+    padding: 1vh 1vw;
+    border-radius: 1vh;
+}
+
+.confirm-action-button:hover {
+    color: white;
+    background-color: #05a18b;
     transition: 0.3s;
 }

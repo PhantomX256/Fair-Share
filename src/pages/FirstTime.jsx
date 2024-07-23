@@ -51,7 +51,6 @@ function FirstTime() {
             await updateDoc(userDocRef, {
                 fullName: name,
                 isNewUser: false,
-                numberOfGroups: 0,
                 groupIds: [],
                 friendIds: []
             });
